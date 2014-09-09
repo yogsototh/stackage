@@ -306,6 +306,7 @@ defaultStablePackages ghcVer requireHP = unPackageMap $ execWriter $ do
         , "graphs monad-products monad-st wl-pprint-extras wl-pprint-terminfo"
         , "numeric-extras parsers pointed prelude-extras reducers"
         , "streams vector-instances"
+        , "lens-aeson"
         ]
     when (ghcVer < GhcMajorVersion 7 8) $
         mapM_ (add "Edward Kmett <ekmett@gmail.com>") $ words =<<
@@ -447,11 +448,11 @@ defaultStablePackages ghcVer requireHP = unPackageMap $ execWriter $ do
     mapM_ (add "Mihai Maruseac <mihai.maruseac@gmail.com>") $ words
         "io-manager"
 
-    {-
+    
     when (ghcVer >= GhcMajorVersion 7 8) $
         mapM_ (add "Yann Esposito <yann.esposito@gmail.com>") $ words
             "holy-project"
-    -}
+    
 
     -- https://github.com/fpco/stackage/issues/216
     -- QuickCheck constraint
